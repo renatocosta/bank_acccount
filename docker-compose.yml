@@ -16,7 +16,7 @@ services:
     working_dir: /var/www
     volumes:
        - ./:/var/www
-       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+       - ./framework/php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
 
@@ -31,7 +31,7 @@ services:
       - "443:443"
     volumes:
       - ./:/var/www
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./framework/nginx/conf.d/:/etc/nginx/conf.d/
     networks:
       - app-network
 
@@ -44,14 +44,14 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: flexclub
-      POSTGRES_USER: flexclub
+      POSTGRES_DB: banking
+      POSTGRES_USER: admin
       POSTGRES_PASSWORD: Fl3X(1u8
       SERVICE_TAGS: dev
       SERVICE_NAME: pgsql
     volumes:
       - dbdata:/var/lib/postgresql
-      - ./pgsql/pg_hba.conf:/etc/pgsql/pg_hba.conf
+      - ./framework/pgsql/pg_hba.conf:/etc/pgsql/pg_hba.conf
     networks:
       - app-network
 

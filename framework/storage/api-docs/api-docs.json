@@ -1,0 +1,73 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Bank account API Documentation",
+        "description": "",
+        "contact": {
+            "email": "renatocostahome@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1/api",
+            "description": "API Server"
+        }
+    ],
+    "paths": {
+        "/bankaccount/account": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Account",
+                "operationId": "account",
+                "parameters": [
+                    {
+                        "name": "customer_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "account_name",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

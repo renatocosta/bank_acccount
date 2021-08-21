@@ -1,33 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         bootstrap="vendor/autoload.php"
-         colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false">
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="true" testdox="true" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">Domains/Context/BankAccount</directory>
+            <directory suffix=".php">Domains/Context/BankAccountOperations</directory>
+        </include>
+        <exclude>
+            <directory suffix=".php">Domains/Context/BankAccount/Infrastructure</directory>
+            <directory suffix=".php">Domains/Context/BankAccount/Application/EventHandlers</directory>
+            <directory suffix=".php">Domains/Context/BankAccountOperations/Infrastructure</directory>
+            <directory suffix=".php">Domains/Context/BankAccountOperations/Application/EventHandlers</directory>
+        </exclude>
+    </coverage>
     <testsuites>
-        <testsuite name="Unit">
-            <directory suffix="Test.php">./tests/Unit</directory>
+        <testsuite name="BankAccount">
+            <directory suffix="Test.php">./tests/Context/BankAccount</directory>
         </testsuite>
-
-        <testsuite name="Feature">
-            <directory suffix="Test.php">./tests/Feature</directory>
+        <testsuite name="BankAccountOperations">
+            <directory suffix="Test.php">./tests/Context/BankAccountOperations</directory>
+        </testsuite>
+        <testsuite name="BankSystem">
+            <directory suffix="Test.php">./tests/Context/BankSystem</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">./app</directory>
-        </whitelist>
-    </filter>
-    <php>
-        <env name="APP_ENV" value="testing"/>
-        <env name="BCRYPT_ROUNDS" value="4"/>
-        <env name="CACHE_DRIVER" value="array"/>
-        <env name="MAIL_DRIVER" value="array"/>
-        <env name="QUEUE_CONNECTION" value="sync"/>
-        <env name="SESSION_DRIVER" value="array"/>
-    </php>
 </phpunit>
