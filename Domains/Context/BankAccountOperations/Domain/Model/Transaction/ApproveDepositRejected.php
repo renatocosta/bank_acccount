@@ -3,9 +3,8 @@
 namespace Domains\Context\BankAccountOperations\Domain\Model\Transaction;
 
 use Domains\CrossCutting\Domain\Application\Event\AbstractEvent;
-use Illuminate\Support\Facades\Log;
 
-class DepositApproved extends AbstractEvent
+class ApproveDepositRejected extends AbstractEvent
 {
 
     public $transaction;

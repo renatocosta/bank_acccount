@@ -7,6 +7,7 @@ use Assert\AssertionFailedException;
 use Domains\Context\BankAccount\Domain\Model\Account\Balance;
 use Domains\CrossCutting\Domain\Application\Event\Bus\DomainEventBus;
 use Domains\CrossCutting\Domain\Model\ValueObjects\AggregateRoot;
+use Illuminate\Support\Facades\Log;
 
 final class TransactionEntity extends AggregateRoot implements Transaction
 {
@@ -30,13 +31,14 @@ final class TransactionEntity extends AggregateRoot implements Transaction
         parent::__construct($domainEventBus);
     }
 
-    public function createFrom(int $accountId, Balance $balance, string $description, string $checkPathFile): Transaction
+    public function createFrom(int $accountId, Balance $balance, string $description, string $checkPathFile, bool $approved = false): Transaction
     {
 
         $this->accountId = $accountId;
         $this->balance = $balance;
         $this->description = $description;
         $this->checkPathFile = $checkPathFile;
+        $this->approved = $approved;
 
         if ($this->isEligible()) {
             $this->raise(new DepositPlaced($this));
@@ -56,8 +58,11 @@ final class TransactionEntity extends AggregateRoot implements Transaction
         $this->checkPathFile = $checkPathFile;
         $this->approved = $approved;
 
-        $this->isEligible();
-
+        if ($this->isEligible()) {
+            $this->raise(new DepositApproved($this));
+        } else {
+            $this->raise(new ApproveDepositRejected($this));
+        }
         return $this;
     }
 

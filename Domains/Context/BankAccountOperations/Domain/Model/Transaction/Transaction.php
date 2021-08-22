@@ -8,7 +8,7 @@ use Domains\CrossCutting\Domain\Model\Common\Validatable;
 interface Transaction extends Validatable
 {
 
-    public function createFrom(int $accountId, Balance $balance, string $description, string $checkPathFile): Transaction;
+    public function createFrom(int $accountId, Balance $balance, string $description, string $checkPathFile, bool $approved = false): Transaction;
 
     public function readFrom(int $id, int $accountId, Balance $balance, string $description, string $checkPathFile, bool $approved): Transaction;
 
