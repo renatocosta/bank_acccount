@@ -12,6 +12,8 @@ interface Transaction extends Validatable
 
     public function readFrom(int $id, int $accountId, Balance $balance, string $description, string $checkPathFile, bool $approved): Transaction;
 
+    public function withdrawal(int $accountId, Balance $balance, string $description, string $checkPathFile, bool $approved): Transaction;
+
     public function isEligible(): bool;
 
     public function getAccountId(): int;
@@ -27,4 +29,7 @@ interface Transaction extends Validatable
     public function setId(int $id): void;
 
     public function getId(): int;
+
+    public function setBalance(Balance $balance): void;
+    
 }

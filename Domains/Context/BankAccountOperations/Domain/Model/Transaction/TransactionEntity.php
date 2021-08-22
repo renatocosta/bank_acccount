@@ -7,7 +7,6 @@ use Assert\AssertionFailedException;
 use Domains\Context\BankAccount\Domain\Model\Account\Balance;
 use Domains\CrossCutting\Domain\Application\Event\Bus\DomainEventBus;
 use Domains\CrossCutting\Domain\Model\ValueObjects\AggregateRoot;
-use Illuminate\Support\Facades\Log;
 
 final class TransactionEntity extends AggregateRoot implements Transaction
 {
@@ -66,6 +65,22 @@ final class TransactionEntity extends AggregateRoot implements Transaction
         return $this;
     }
 
+    public function withdrawal(int $accountId, Balance $balance, string $description, string $checkPathFile, bool $approved): Transaction
+    {
+        $this->accountId = $accountId;
+        $this->balance = $balance;
+        $this->description = $description;
+        $this->checkPathFile = $checkPathFile;
+        $this->approved = $approved;
+
+        if ($this->isEligible()) {
+            $this->raise(new WithdrawalPlaced($this));
+        } else {
+            $this->raise(new WithdrawalRejected($this));
+        }
+        return $this;
+    }
+
     public function isEligible(): bool
     {
         try {
@@ -111,6 +126,11 @@ final class TransactionEntity extends AggregateRoot implements Transaction
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function setBalance(Balance $balance): void
+    {
+        $this->balance = $balance;
     }
 
     public function isValid(): bool

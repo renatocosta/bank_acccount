@@ -12,4 +12,7 @@ interface ITransactionRepository
     public function create(Transaction $transaction): void;
 
     public function approve(Transaction $transaction): void;
+
+    public function withdrawal(Transaction $transaction): void;
+
 }

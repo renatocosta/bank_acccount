@@ -5,10 +5,14 @@ namespace Domains\Context\BankAccountOperations\Infrastructure\Framework\Provide
 use Domains\Context\BankAccountOperations\Application\EventHandlers\Deposit\TransactionApprovedEventHandler;
 use Domains\Context\BankAccountOperations\Application\EventHandlers\Deposit\TransactionPlacedEventHandler;
 use Domains\Context\BankAccountOperations\Application\EventHandlers\Deposit\TransactionRejectedEventHandler;
+use Domains\Context\BankAccountOperations\Application\EventHandlers\Withdrawal\WithdrawalPlacedEventHandler;
+use Domains\Context\BankAccountOperations\Application\EventHandlers\Withdrawal\WithdrawalRejectedEventHandler;
 use Domains\Context\BankAccountOperations\Application\UseCases\Deposit\Approve\ApproveDepositUseCase;
 use Domains\Context\BankAccountOperations\Application\UseCases\Deposit\Approve\IApproveDepositUseCase;
 use Domains\Context\BankAccountOperations\Application\UseCases\Deposit\IPlaceDepositUseCase;
 use Domains\Context\BankAccountOperations\Application\UseCases\Deposit\PlaceDepositUseCase;
+use Domains\Context\BankAccountOperations\Application\UseCases\Withdrawal\IWithdrawalUseCase;
+use Domains\Context\BankAccountOperations\Application\UseCases\Withdrawal\WithdrawalUseCase;
 use Domains\Context\BankAccountOperations\Domain\Model\Transaction\TransactionEntity;
 use Domains\Context\BankAccountOperations\Infrastructure\Framework\DataAccess\Repositories\TransactionRepository;
 use Domains\Context\BankAccountOperations\Infrastructure\Framework\Entities\TransactionsModel;
@@ -68,6 +72,21 @@ class BankAccountOperationsServiceProvider extends ServiceProvider
                 return new ApproveDepositUseCase($transaction, $transactionRepository);
             }
         );
+
+        ## USE CASE - Place a withdrawal  ##
+        $this->app->singleton(
+            IWithdrawalUseCase::class,
+            function () {
+                $domainEventBus = new DomainEventBus();
+                $domainEventBus->subscribe(new WithdrawalPlacedEventHandler);
+                $domainEventBus->subscribe(new WithdrawalRejectedEventHandler());
+                $transaction = new TransactionEntity($domainEventBus);
+                $transactionModel = new TransactionsModel();
+                $transactionRepository = new TransactionRepository($transactionModel);
+                return new WithdrawalUseCase($transaction, $transactionRepository);
+            }
+        );
+
     }
 
     /**

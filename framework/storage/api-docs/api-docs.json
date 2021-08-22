@@ -260,6 +260,53 @@
                     }
                 }
             }
+        },
+        "/bankaccountoperations/withdrawal": {
+            "post": {
+                "tags": [
+                    "Withdrawal"
+                ],
+                "summary": "Place a new withdrawal",
+                "operationId": "Place a new withdrawal",
+                "parameters": [
+                    {
+                        "name": "account_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "balance",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "float"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
         }
     },
     "security": [
