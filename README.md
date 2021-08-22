@@ -63,9 +63,9 @@ Go through all of the learning journey using Event Storming for understanding th
 
 [BankAccountOperations](Domains/Context/BankAccountOperations)
 
-## Notice
+## Warning
 I am not taking security, performance and among other concerns into consideration.
 I am also aware of low unit testing code coverage.
 
 ## Knowledgements
-Domain Drive Design, Event Storming
+Domain-Driven Design, Event Storming
