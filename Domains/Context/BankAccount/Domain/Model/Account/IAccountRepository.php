@@ -13,6 +13,6 @@ interface IAccountRepository
 
     public function findById(int $accountId): array;
 
-    public function findTransactions(int $accountid): array;
+    public function findTransactions(int $accountid, bool $approved = true): array;
 
 }

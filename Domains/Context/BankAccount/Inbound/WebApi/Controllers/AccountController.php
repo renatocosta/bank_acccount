@@ -8,6 +8,7 @@ use Domains\Context\BankAccount\Application\UseCases\Account\CreateAccountInput;
 use Domains\Context\BankAccount\Application\UseCases\Account\ICreateAccountUseCase;
 use Domains\Context\BankAccount\Infrastructure\Framework\Transformers\AccountErrorsResource;
 use Domains\Context\BankAccount\Infrastructure\Framework\Transformers\AccountResource;
+use Domains\Context\BankAccount\Domain\Model\Account\IAccountRepository;
 use Domains\CrossCutting\Domain\Application\Services\Common\MessageHandler;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -80,5 +81,54 @@ class AccountController extends Controller
 
         return (new AccountErrorsResource($input->modelState->errors))->response()->setStatusCode(Response::HTTP_UNPROCESSABLE_ENTITY);
     }
-    
+
+    /**
+     * @OA\Get(
+     ** path="/bankaccount/account/{account_id}/transactions",
+     *   tags={"Account"},
+     *   summary="List all transactions by account",
+     *
+     *   @OA\Parameter(
+     *      name="account_id",
+     *      in="query",
+     *      required=true,
+     *      @OA\Schema(
+     *          type="integer"
+     *      )
+     *   ),
+     *  
+     *   @OA\Response(
+     *      response=200,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=401,
+     *       description="Unauthenticated"
+     *   ),
+     *   @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *)
+     **/
+    /**
+     * login api
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function allTransactions(Request $request, IAccountRepository $accountRepository)
+    {
+        return $accountRepository->findTransactions($request->get('account_id'), false);
+    }
 }

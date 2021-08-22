@@ -42,12 +42,14 @@ final class AccountRepository implements IAccountRepository
         return [];
     }
 
-    public function findTransactions(int $accountId): array
+    public function findTransactions(int $accountId, bool $approved = true): array
     {
         return $this->accountModel
-            ->with(['transactions' => function ($query) {
+            ->with(['transactions' => function ($query) use ($approved) {
                 $query->select('account_id', 'balance', 'description', 'check_path_file', 'approved', 'created_at');
-                $query->where('approved', true);
+                if ($approved) {
+                    $query->where('approved', $approved);
+                }
             }])
             ->has('transactions')
             ->where('id', $accountId)

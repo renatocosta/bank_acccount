@@ -11,6 +11,7 @@ use Domains\Context\BankAccount\Application\UseCases\Balance\RecalculateBalanceU
 use Domains\Context\BankAccount\Domain\Model\Account\AccountEntity;
 use Domains\Context\BankAccount\Infrastructure\Framework\Entities\AccountModel;
 use Domains\Context\BankAccount\Infrastructure\Framework\DataAccess\Repositories\AccountRepository;
+use Domains\Context\BankAccount\Domain\Model\Account\IAccountRepository;
 use Domains\CrossCutting\Domain\Application\Event\Bus\DomainEventBus;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
@@ -68,6 +69,13 @@ class BankAccountServiceProvider extends ServiceProvider
             }
         );
 
+        $this->app->singleton(
+            IAccountRepository::class,
+            function () {
+                $accountModel = new AccountModel();
+                return new AccountRepository($accountModel);
+            }
+        );
     }
 
     /**

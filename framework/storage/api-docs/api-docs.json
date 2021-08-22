@@ -66,6 +66,44 @@
                 }
             }
         },
+        "/bankaccount/account/{account_id}/transactions": {
+            "get": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "List all transactions by account",
+                "parameters": [
+                    {
+                        "name": "account_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
         "/bankaccount/balance/{account_id}": {
             "patch": {
                 "tags": [
