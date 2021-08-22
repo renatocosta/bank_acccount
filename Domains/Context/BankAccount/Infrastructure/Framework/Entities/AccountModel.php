@@ -3,6 +3,7 @@
 namespace Domains\Context\BankAccount\Infrastructure\Framework\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AccountModel extends Model
 {
@@ -19,5 +20,10 @@ class AccountModel extends Model
 
             //$model->created_by = \Auth::User()->id;
         });
+    }
+
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(TransactionsModel::class, 'account_id');
     }
 }

@@ -6,6 +6,8 @@ use Domains\Context\BankAccount\Application\EventHandlers\Account\AccountCreated
 use Domains\Context\BankAccount\Application\EventHandlers\Account\AccountRejectedEventHandler;
 use Domains\Context\BankAccount\Application\UseCases\Account\CreateAccountUseCase;
 use Domains\Context\BankAccount\Application\UseCases\Account\ICreateAccountUseCase;
+use Domains\Context\BankAccount\Application\UseCases\Balance\IRecalculateBalanceUseCase;
+use Domains\Context\BankAccount\Application\UseCases\Balance\RecalculateBalanceUseCase;
 use Domains\Context\BankAccount\Domain\Model\Account\AccountEntity;
 use Domains\Context\BankAccount\Infrastructure\Framework\Entities\AccountModel;
 use Domains\Context\BankAccount\Infrastructure\Framework\DataAccess\Repositories\AccountRepository;
@@ -38,7 +40,7 @@ class BankAccountServiceProvider extends ServiceProvider
     {
         $this->app->register(RouteServiceProvider::class);
 
-        ## USE CASE - Importing a spreadsheet   ##
+        ## USE CASE - Create a new account  ##
         $this->app->singleton(
             ICreateAccountUseCase::class,
             function () {
@@ -51,6 +53,21 @@ class BankAccountServiceProvider extends ServiceProvider
                 return new CreateAccountUseCase($account, $accountRepository);
             }
         );
+
+        ## USE CASE - Recalculate balance for any account  ##
+        $this->app->singleton(
+            IRecalculateBalanceUseCase::class,
+            function () {
+                $domainEventBus = new DomainEventBus();
+                $domainEventBus->subscribe(new AccountCreatedEventHandler());
+                $domainEventBus->subscribe(new AccountRejectedEventHandler());
+                $account = new AccountEntity($domainEventBus);
+                $accountModel = new AccountModel();
+                $accountRepository = new AccountRepository($accountModel);
+                return new RecalculateBalanceUseCase($account, $accountRepository);
+            }
+        );
+
     }
 
     /**

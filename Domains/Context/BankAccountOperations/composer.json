@@ -1,0 +1,25 @@
+{
+    "name": "turnoverbnb/BankAccountOperations",
+    "description": "",
+    "authors": [
+        {
+            "name": "Renato Costa",
+            "email": "renatocostahome@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Domains\Context\\BankAccountOperations\\Infrastructure\\Framework\\Providers\\BankAccountOperationsServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Domains\Context\\BankAccountOperations\\": ""
+        }
+    }
+}

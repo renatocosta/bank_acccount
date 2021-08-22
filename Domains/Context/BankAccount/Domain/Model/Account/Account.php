@@ -9,6 +9,10 @@ interface Account extends Validatable
 
     public function createFrom(int $customerId, string $accountName, Balance $balance): Account;
 
+    public function readFrom(int $id, int $customerId, string $accountName, Balance $balance): Account;
+
+    public function isEligible(): bool;
+
     public function getCustomerId(): int;
 
     public function getAccountName(): string;

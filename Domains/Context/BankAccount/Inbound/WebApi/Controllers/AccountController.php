@@ -80,4 +80,5 @@ class AccountController extends Controller
 
         return (new AccountErrorsResource($input->modelState->errors))->response()->setStatusCode(Response::HTTP_UNPROCESSABLE_ENTITY);
     }
+    
 }

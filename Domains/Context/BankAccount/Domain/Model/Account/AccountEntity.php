@@ -36,14 +36,35 @@ final class AccountEntity extends AggregateRoot implements Account
         $this->accountName = $accountName;
         $this->balance = $balance;
 
-        try {
-            Assert::that($this->customerId, 'CUSTOMER_ID_CAN_NOT_BE_ZERO_OR_NEGATIVE')->greaterThan(0);
+        if ($this->isEligible()) {
             $this->raise(new AccountCreated($this));
-        } catch (AssertionFailedException $e) {
-            $this->errors[] = $e->getMessage();
+        } else {
             $this->raise(new AccountRejected($this));
         }
 
+        return $this;
+    }
+
+    public function isEligible(): bool
+    {
+        try {
+            Assert::that($this->customerId, 'CUSTOMER_ID_CAN_NOT_BE_ZERO_OR_NEGATIVE')->greaterThan(0);
+        } catch (AssertionFailedException $e) {
+            $this->errors[] = $e->getMessage();
+            return false;
+        }
+
+        return true;
+    }
+
+    public function readFrom(int $id, int $customerId, string $accountName, Balance $balance): Account
+    {
+        $this->id = $id;
+        $this->customerId = $customerId;
+        $this->accountName = $accountName;
+        $this->balance = $balance;
+
+        $this->isEligible();
         return $this;
     }
 

@@ -16,4 +16,9 @@ class MessageHandler
     {
         $this->errors = $errors;
     }
+
+    public function addError(string $message)
+    {
+        array_push($this->errors, $message);
+    }
 }

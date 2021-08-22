@@ -11,5 +11,8 @@ interface IAccountRepository
 
     public function create(Account $account): void;
 
-    public function findById(int $id): array;
+    public function findById(int $accountId): array;
+
+    public function findTransactions(int $accountid): array;
+
 }

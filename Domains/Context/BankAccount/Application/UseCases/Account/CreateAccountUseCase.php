@@ -29,6 +29,10 @@ final class CreateAccountUseCase implements ICreateAccountUseCase
             return;
         }
 
-        $this->accountRepository->create($this->account);
+        try {
+            $this->accountRepository->create($this->account);
+        } catch (Exception $e) {
+            $input->modelState->addError('Something went wrong while creating a new account');
+        }
     }
 }

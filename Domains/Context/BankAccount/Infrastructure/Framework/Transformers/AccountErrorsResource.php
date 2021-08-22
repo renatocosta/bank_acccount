@@ -16,7 +16,7 @@ class AccountErrorsResource extends JsonResource
   {
 
     return [
-      '_type'               => 'DataSource',
+      '_type'               => 'BankAccount',
       'errors' =>           $this->resource,
     ];
   }

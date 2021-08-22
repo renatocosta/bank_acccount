@@ -25,7 +25,9 @@ final class AccountRepository implements IAccountRepository
 
     public function update(Account $account): void
     {
-        // Not implemented yet
+        $model = $this->accountModel->find($account->getId());
+        $model->current_balance = $account->getBalance()->value;
+        $model->save();
     }
 
     public function create(Account $account): void
@@ -38,5 +40,18 @@ final class AccountRepository implements IAccountRepository
     public function findById(int $id): array
     {
         return [];
+    }
+
+    public function findTransactions(int $accountId): array
+    {
+        return $this->accountModel
+            ->with(['transactions' => function ($query) {
+                $query->select('account_id', 'balance', 'description', 'check_path_file', 'approved', 'created_at');
+                $query->where('approved', true);
+            }])
+            ->has('transactions')
+            ->where('id', $accountId)
+            ->get()
+            ->toArray();
     }
 }

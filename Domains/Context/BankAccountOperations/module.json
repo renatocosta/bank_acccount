@@ -1,0 +1,14 @@
+{
+    "name": "BankAccountOperations",
+    "alias": "bankaccount",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Domains\\Context\\BankAccountOperations\\Infrastructure\\Framework\\Providers\\BankAccountOperationsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
