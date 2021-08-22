@@ -12,6 +12,7 @@ use Domains\Context\BankAccountOperations\Infrastructure\Framework\Transformers\
 use Domains\Context\BankAccountOperations\Infrastructure\Framework\Transformers\TransactionResource;
 use Domains\CrossCutting\Domain\Application\Services\Common\MessageHandler;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
 class WithdrawalController extends Controller
@@ -69,6 +70,7 @@ class WithdrawalController extends Controller
      **/
     public function create(Request $request, IWithdrawalUseCase $withdrawalUseCase)
     {
+        Log::info("INcoming");
         $input = new WithdrawalInput($request->account_id, $request->balance, new MessageHandler());
         $withdrawalUseCase->execute($input);
 

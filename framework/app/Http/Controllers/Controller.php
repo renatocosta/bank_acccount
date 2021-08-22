@@ -22,7 +22,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
  * )
  * 
  * @OA\Server(
- *      url="http://127.0.0.1/api",
+ *      url="http://397b-187-38-36-146.ngrok.io/api",
  *      description="API Server"
  * )
  *
