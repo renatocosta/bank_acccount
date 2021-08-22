@@ -24,6 +24,7 @@ BUILD IMAGE : docker-compose build &&  docker-compose up -d
 ### Docker Commands
 docker-compose exec app bash -c "cd framework && composer install"
 docker-compose exec app bash -c "cd framework && php artisan migrate"
+docker-compose exec app bash -c "cd framework && php artisan db:seed --class=UserSeeder"
 docker-compose exec app bash -c "cd framework && php artisan vendor:publish --provider "L5Swagger\L5SwaggerServiceProvider""
 docker-compose exec app bash -c "cd framework && php artisan l5-swagger:generate"
 docker-compose exec app bash -c "cd framework && php artisan vendor:publish --provider="Nwidart\Modules\LaravelModulesServiceProvider""
