@@ -19,7 +19,7 @@ class AccountController extends Controller
      * @OA\Post(
      ** path="/bankaccount/account",
      *   tags={"Account"},
-     *   summary="Account",
+     *   summary="Create a new account",
      *   operationId="account",
      *
      *   @OA\Parameter(

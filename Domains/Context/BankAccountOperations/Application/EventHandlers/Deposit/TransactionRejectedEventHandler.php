@@ -1,13 +1,13 @@
 <?php
 
-namespace Domains\Context\BankAccountOperations\Application\EventHandlers\Transaction;
+namespace Domains\Context\BankAccountOperations\Application\EventHandlers\Deposit;
 
-use Domains\Context\BankAccountOperations\Domain\Model\Transaction\DepositPlaced;
+use Domains\Context\BankAccountOperations\Domain\Model\Transaction\DepositRejected;
 use Domains\CrossCutting\Domain\Application\Event\AbstractEvent;
 use Domains\CrossCutting\Domain\Application\Event\DomainEventHandler;
 use Illuminate\Support\Facades\Log;
 
-final class TransactionCreatedEventHandler implements DomainEventHandler
+final class TransactionRejectedEventHandler implements DomainEventHandler
 {
 
     public function handle(AbstractEvent $domainEvent): void
@@ -17,6 +17,6 @@ final class TransactionCreatedEventHandler implements DomainEventHandler
 
     public function isSubscribedTo(AbstractEvent $domainEvent): bool
     {
-        return $domainEvent instanceof DepositPlaced;
+        return $domainEvent instanceof DepositRejected;
     }
 }

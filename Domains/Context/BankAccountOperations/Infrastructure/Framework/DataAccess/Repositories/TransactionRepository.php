@@ -30,4 +30,21 @@ final class TransactionRepository implements ITransactionRepository
         $transaction->setId($this->transactionModel->id);
     }
 
+    public function findById(int $id): array
+    {
+
+        $result = $this->transactionModel
+            ->find($id);
+
+        if ($result === null) return [];
+
+        return $result->toArray();
+    }
+
+    public function approve(Transaction $transaction): void
+    {
+        $model = $this->transactionModel->find($transaction->getId());
+        $model->approved = $transaction->getApproved();
+        $model->save();
+    }
 }

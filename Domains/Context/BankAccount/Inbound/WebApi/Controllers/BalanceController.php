@@ -14,6 +14,49 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BalanceController extends Controller
 {
+    /**
+     * @OA\Patch(
+     *   path="/bankaccount/balance/{account_id}",
+     *   tags={"Account"},
+     *   summary="Recalculate an account balance",
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="account_id",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *         ),
+     *     ),
+     * 
+     *   @OA\Response(
+     *      response=200,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=401,
+     *       description="Unauthenticated"
+     *   ),
+     *   @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="not found"
+     *   ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *)
+     **/
+    /**
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, IRecalculateBalanceUseCase $recalculateBalanceUseCase)
     {
 

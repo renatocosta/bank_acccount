@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Context\BankAccountOperations\Application\UseCases\Transaction;
+namespace Domains\Context\BankAccountOperations\Application\UseCases\Deposit;
 
 use Domains\Context\BankAccount\Domain\Model\Account\Balance;
 use Domains\Context\BankAccountOperations\Domain\Model\Transaction\ITransactionRepository;

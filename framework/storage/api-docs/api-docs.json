@@ -24,7 +24,7 @@
                 "tags": [
                     "Account"
                 ],
-                "summary": "Account",
+                "summary": "Create a new account",
                 "operationId": "account",
                 "parameters": [
                     {
@@ -71,7 +71,7 @@
                 "tags": [
                     "Account"
                 ],
-                "summary": "Recalculate the given account",
+                "summary": "Recalculate an account balance",
                 "parameters": [
                     {
                         "name": "account_id",
@@ -104,13 +104,13 @@
                 }
             }
         },
-        "/bankaccountoperations/transaction": {
+        "/bankaccountoperations/deposit": {
             "post": {
                 "tags": [
-                    "Bank Account Operations"
+                    "Deposit"
                 ],
-                "summary": "Bank Account Operations",
-                "operationId": "Bank Account Operations",
+                "summary": "Place a new deposit",
+                "operationId": "Place a new deposit",
                 "parameters": [
                     {
                         "name": "account_id",
@@ -142,6 +142,44 @@
                         "required": true,
                         "schema": {
                             "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/bankaccountoperations/deposit/{transaction_id}/approve": {
+            "patch": {
+                "tags": [
+                    "Deposit"
+                ],
+                "summary": "Approve a deposit",
+                "parameters": [
+                    {
+                        "name": "transaction_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
                         }
                     }
                 ],

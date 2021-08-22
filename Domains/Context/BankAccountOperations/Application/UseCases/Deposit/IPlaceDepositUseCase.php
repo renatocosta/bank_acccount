@@ -1,6 +1,6 @@
 <?php
 
-namespace Domains\Context\BankAccountOperations\Application\UseCases\Transaction;
+namespace Domains\Context\BankAccountOperations\Application\UseCases\Deposit;
 
 interface IPlaceDepositUseCase
 {

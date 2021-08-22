@@ -21,7 +21,8 @@ class TransactionResource extends JsonResource
       'account_id'                  => $this->getAccountId(),
       'balance'                     => $this->getBalance()->value,
       'description'                 => $this->getDescription(),
-      'check_path_file'             => $this->getCheckPathFile()
+      'check_path_file'             => $this->getCheckPathFile(),
+      'approved'                    => $this->getApproved()
     ];
   }
 }

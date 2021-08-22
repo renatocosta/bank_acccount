@@ -2,20 +2,14 @@
 
 namespace Domains\Context\BankAccountOperations\Infrastructure\Framework\Providers;
 
-use Domains\Context\BankAccountOperations\Application\EventHandlers\Account\AccountCreatedEventHandler;
-use Domains\Context\BankAccountOperations\Application\EventHandlers\Account\AccountRejectedEventHandler;
-use Domains\Context\BankAccountOperations\Application\EventHandlers\Transaction\TransactionCreatedEventHandler;
-use Domains\Context\BankAccountOperations\Application\EventHandlers\Transaction\TransactionRejectedEventHandler;
-use Domains\Context\BankAccountOperations\Application\UseCases\Account\CreateAccountUseCase;
-use Domains\Context\BankAccountOperations\Application\UseCases\Account\ICreateAccountUseCase;
-use Domains\Context\BankAccountOperations\Application\UseCases\Balance\IRecalculateBalanceUseCase;
-use Domains\Context\BankAccountOperations\Application\UseCases\Balance\RecalculateBalanceUseCase;
-use Domains\Context\BankAccountOperations\Application\UseCases\Transaction\IPlaceDepositUseCase;
-use Domains\Context\BankAccountOperations\Application\UseCases\Transaction\PlaceDepositUseCase;
-use Domains\Context\BankAccountOperations\Domain\Model\Account\AccountEntity;
+use Domains\Context\BankAccountOperations\Application\EventHandlers\Deposit\TransactionApprovedEventHandler;
+use Domains\Context\BankAccountOperations\Application\EventHandlers\Deposit\TransactionPlacedEventHandler;
+use Domains\Context\BankAccountOperations\Application\EventHandlers\Deposit\TransactionRejectedEventHandler;
+use Domains\Context\BankAccountOperations\Application\UseCases\Deposit\Approve\ApproveDepositUseCase;
+use Domains\Context\BankAccountOperations\Application\UseCases\Deposit\Approve\IApproveDepositUseCase;
+use Domains\Context\BankAccountOperations\Application\UseCases\Deposit\IPlaceDepositUseCase;
+use Domains\Context\BankAccountOperations\Application\UseCases\Deposit\PlaceDepositUseCase;
 use Domains\Context\BankAccountOperations\Domain\Model\Transaction\TransactionEntity;
-use Domains\Context\BankAccountOperations\Infrastructure\Framework\Entities\AccountModel;
-use Domains\Context\BankAccountOperations\Infrastructure\Framework\DataAccess\Repositories\AccountRepository;
 use Domains\Context\BankAccountOperations\Infrastructure\Framework\DataAccess\Repositories\TransactionRepository;
 use Domains\Context\BankAccountOperations\Infrastructure\Framework\Entities\TransactionsModel;
 use Domains\CrossCutting\Domain\Application\Event\Bus\DomainEventBus;
@@ -52,12 +46,26 @@ class BankAccountOperationsServiceProvider extends ServiceProvider
             IPlaceDepositUseCase::class,
             function () {
                 $domainEventBus = new DomainEventBus();
-                $domainEventBus->subscribe(new TransactionCreatedEventHandler());
+                $domainEventBus->subscribe(new TransactionPlacedEventHandler());
                 $domainEventBus->subscribe(new TransactionRejectedEventHandler());
                 $transaction = new TransactionEntity($domainEventBus);
                 $transactionModel = new TransactionsModel();
                 $transactionRepository = new TransactionRepository($transactionModel);
                 return new PlaceDepositUseCase($transaction, $transactionRepository);
+            }
+        );
+
+        ## USE CASE - Approve a deposit  ##
+        $this->app->singleton(
+            IApproveDepositUseCase::class,
+            function () {
+                $domainEventBus = new DomainEventBus();
+                $domainEventBus->subscribe(new TransactionApprovedEventHandler);
+                $domainEventBus->subscribe(new TransactionRejectedEventHandler());
+                $transaction = new TransactionEntity($domainEventBus);
+                $transactionModel = new TransactionsModel();
+                $transactionRepository = new TransactionRepository($transactionModel);
+                return new ApproveDepositUseCase($transaction, $transactionRepository);
             }
         );
     }

@@ -38,15 +38,39 @@ final class TransactionEntity extends AggregateRoot implements Transaction
         $this->description = $description;
         $this->checkPathFile = $checkPathFile;
 
-        try {
-            Assert::that($this->balance->value, 'CUSTOMER_ID_CAN_NOT_BE_ZERO_OR_NEGATIVE')->greaterThan(0);
+        if ($this->isEligible()) {
             $this->raise(new DepositPlaced($this));
-        } catch (AssertionFailedException $e) {
-            $this->errors[] = $e->getMessage();
+        } else {
             $this->raise(new DepositRejected($this));
         }
 
         return $this;
+    }
+
+    public function readFrom(int $id, int $accountId, Balance $balance, string $description, string $checkPathFile, bool $approved): Transaction
+    {
+        $this->id = $id;
+        $this->accountId = $accountId;
+        $this->balance = $balance;
+        $this->description = $description;
+        $this->checkPathFile = $checkPathFile;
+        $this->approved = $approved;
+
+        $this->isEligible();
+
+        return $this;
+    }
+
+    public function isEligible(): bool
+    {
+        try {
+            Assert::that($this->balance->value, 'BALANCE_MUST_BE_GREATER_THAN_ZERO')->greaterThan(0);
+        } catch (AssertionFailedException $e) {
+            $this->errors[] = $e->getMessage();
+            return false;
+        }
+
+        return true;
     }
 
     public function getAccountId(): int
