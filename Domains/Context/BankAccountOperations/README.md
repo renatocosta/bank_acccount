@@ -1,1 +1,1 @@
-![Image](../../../../assets/BankAccountOperations.jpg?raw=true)
+![Image](../../../assets/BankAccountOperations.jpg?raw=true)

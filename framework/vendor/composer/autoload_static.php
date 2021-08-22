@@ -4,17 +4,17 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitde752f88757dc978af014d27cc3d0892
+class ComposerStaticInit1a3e9ee492449c081ba69531b809a5a4
 {
     public static $files = array (
-        'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
+        'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
@@ -22,20 +22,20 @@ class ComposerStaticInitde752f88757dc978af014d27cc3d0892
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
-        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
+        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
         'c7a3c339e7e14b60e06a2d7fcce9476b' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Events/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
         'a4ecaeafb8cfb009ad0e052c90355e98' => __DIR__ . '/..' . '/beberlei/assert/lib/Assert/functions.php',
         'ac0aa5b57142c92aeadc397fa46b9d39' => __DIR__ . '/..' . '/darkaonline/l5-swagger/src/helpers.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
@@ -200,8 +200,8 @@ class ComposerStaticInitde752f88757dc978af014d27cc3d0892
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
         ),
         'Whoops\\' => 
         array (
@@ -353,8 +353,8 @@ class ComposerStaticInitde752f88757dc978af014d27cc3d0892
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -794,29 +794,38 @@ class ComposerStaticInitde752f88757dc978af014d27cc3d0892
         'Doctrine\\Instantiator\\Exception\\UnexpectedValueException' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/UnexpectedValueException.php',
         'Doctrine\\Instantiator\\Instantiator' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Instantiator.php',
         'Doctrine\\Instantiator\\InstantiatorInterface' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/InstantiatorInterface.php',
-        'Domains\\Context\\BankAccountOperations\\Application\\EventHandlers\\Transaction\\TransactionCreatedEventHandler' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/EventHandlers/Transaction/TransactionCreatedEventHandler.php',
-        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Account\\CreateAccountInput' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Account/CreateAccountInput.php',
-        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Account\\CreateAccountUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Account/CreateAccountUseCase.php',
-        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Account\\ICreateAccountUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Account/ICreateAccountUseCase.php',
-        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Balance\\IRecalculateBalanceUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Balance/IRecalculateBalanceUseCase.php',
-        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Balance\\RecalculateBalanceInput' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Balance/RecalculateBalanceInput.php',
-        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Balance\\RecalculateBalanceUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Balance/RecalculateBalanceUseCase.php',
-        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Transaction\\ApproveTransactionInput' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Transaction/ApproveTransactionInput.php',
-        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Transaction\\ApproveTransactionUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Transaction/ApproveTransactionUseCase.php',
-        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Transaction\\IApproveTransactionUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Transaction/IApproveTransactionUseCase.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\EventHandlers\\Deposit\\TransactionApprovedEventHandler' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/EventHandlers/Deposit/TransactionApprovedEventHandler.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\EventHandlers\\Deposit\\TransactionPlacedEventHandler' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/EventHandlers/Deposit/TransactionPlacedEventHandler.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\EventHandlers\\Deposit\\TransactionRejectedEventHandler' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/EventHandlers/Deposit/TransactionRejectedEventHandler.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\EventHandlers\\Withdrawal\\WithdrawalPlacedEventHandler' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/EventHandlers/Withdrawal/WithdrawalPlacedEventHandler.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\EventHandlers\\Withdrawal\\WithdrawalRejectedEventHandler' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/EventHandlers/Withdrawal/WithdrawalRejectedEventHandler.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Deposit\\Approve\\ApproveDepositInput' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Deposit/Approve/ApproveDepositInput.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Deposit\\Approve\\ApproveDepositUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Deposit/Approve/ApproveDepositUseCase.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Deposit\\Approve\\IApproveDepositUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Deposit/Approve/IApproveDepositUseCase.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Deposit\\IPlaceDepositUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Deposit/IPlaceDepositUseCase.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Deposit\\PlaceDepositInput' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Deposit/PlaceDepositInput.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Deposit\\PlaceDepositUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Deposit/PlaceDepositUseCase.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Withdrawal\\IWithdrawalUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Withdrawal/IWithdrawalUseCase.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Withdrawal\\WithdrawalInput' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Withdrawal/WithdrawalInput.php',
+        'Domains\\Context\\BankAccountOperations\\Application\\UseCases\\Withdrawal\\WithdrawalUseCase' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Application/UseCases/Withdrawal/WithdrawalUseCase.php',
+        'Domains\\Context\\BankAccountOperations\\Domain\\Model\\Transaction\\ApproveDepositRejected' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Domain/Model/Transaction/ApproveDepositRejected.php',
+        'Domains\\Context\\BankAccountOperations\\Domain\\Model\\Transaction\\DepositApproved' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Domain/Model/Transaction/DepositApproved.php',
         'Domains\\Context\\BankAccountOperations\\Domain\\Model\\Transaction\\DepositPlaced' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Domain/Model/Transaction/DepositPlaced.php',
+        'Domains\\Context\\BankAccountOperations\\Domain\\Model\\Transaction\\DepositRejected' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Domain/Model/Transaction/DepositRejected.php',
         'Domains\\Context\\BankAccountOperations\\Domain\\Model\\Transaction\\ITransactionRepository' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Domain/Model/Transaction/ITransactionRepository.php',
         'Domains\\Context\\BankAccountOperations\\Domain\\Model\\Transaction\\Transaction' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Domain/Model/Transaction/Transaction.php',
         'Domains\\Context\\BankAccountOperations\\Domain\\Model\\Transaction\\TransactionEntity' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Domain/Model/Transaction/TransactionEntity.php',
-        'Domains\\Context\\BankAccountOperations\\Inbound\\WebApi\\Controllers\\AccountController' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Inbound/WebApi/Controllers/AccountController.php',
-        'Domains\\Context\\BankAccountOperations\\Inbound\\WebApi\\Controllers\\BalanceController' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Inbound/WebApi/Controllers/BalanceController.php',
+        'Domains\\Context\\BankAccountOperations\\Domain\\Model\\Transaction\\WithdrawalPlaced' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Domain/Model/Transaction/WithdrawalPlaced.php',
+        'Domains\\Context\\BankAccountOperations\\Domain\\Model\\Transaction\\WithdrawalRejected' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Domain/Model/Transaction/WithdrawalRejected.php',
+        'Domains\\Context\\BankAccountOperations\\Inbound\\WebApi\\Controllers\\DepositController' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Inbound/WebApi/Controllers/DepositController.php',
+        'Domains\\Context\\BankAccountOperations\\Inbound\\WebApi\\Controllers\\WithdrawalController' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Inbound/WebApi/Controllers/WithdrawalController.php',
         'Domains\\Context\\BankAccountOperations\\Infrastructure\\Framework\\DataAccess\\Repositories\\TransactionRepository' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Infrastructure/Framework/DataAccess/Repositories/TransactionRepository.php',
         'Domains\\Context\\BankAccountOperations\\Infrastructure\\Framework\\DataAccess\\UnitOfWork' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Infrastructure/Framework/DataAccess/UnitOfWork.php',
         'Domains\\Context\\BankAccountOperations\\Infrastructure\\Framework\\Entities\\TransactionsModel' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Infrastructure/Framework/Entities/TransactionsModel.php',
         'Domains\\Context\\BankAccountOperations\\Infrastructure\\Framework\\Providers\\BankAccountOperationsServiceProvider' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Infrastructure/Framework/Providers/BankAccountOperationsServiceProvider.php',
         'Domains\\Context\\BankAccountOperations\\Infrastructure\\Framework\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Infrastructure/Framework/Providers/RouteServiceProvider.php',
-        'Domains\\Context\\BankAccountOperations\\Infrastructure\\Framework\\Transformers\\AccountErrorsResource' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Infrastructure/Framework/Transformers/AccountErrorsResource.php',
-        'Domains\\Context\\BankAccountOperations\\Infrastructure\\Framework\\Transformers\\AccountResource' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Infrastructure/Framework/Transformers/AccountResource.php',
+        'Domains\\Context\\BankAccountOperations\\Infrastructure\\Framework\\Transformers\\TransactionErrorsResource' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Infrastructure/Framework/Transformers/TransactionErrorsResource.php',
+        'Domains\\Context\\BankAccountOperations\\Infrastructure\\Framework\\Transformers\\TransactionResource' => __DIR__ . '/../..' . '/../Domains/Context/BankAccountOperations/Infrastructure/Framework/Transformers/TransactionResource.php',
         'Domains\\Context\\BankAccount\\Application\\EventHandlers\\Account\\AccountCreatedEventHandler' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Application/EventHandlers/Account/AccountCreatedEventHandler.php',
         'Domains\\Context\\BankAccount\\Application\\EventHandlers\\Account\\AccountRejectedEventHandler' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Application/EventHandlers/Account/AccountRejectedEventHandler.php',
         'Domains\\Context\\BankAccount\\Application\\UseCases\\Account\\CreateAccountInput' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Application/UseCases/Account/CreateAccountInput.php',
@@ -831,6 +840,8 @@ class ComposerStaticInitde752f88757dc978af014d27cc3d0892
         'Domains\\Context\\BankAccount\\Domain\\Model\\Account\\AccountRejected' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Domain/Model/Account/AccountRejected.php',
         'Domains\\Context\\BankAccount\\Domain\\Model\\Account\\Balance' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Domain/Model/Account/Balance.php',
         'Domains\\Context\\BankAccount\\Domain\\Model\\Account\\IAccountRepository' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Domain/Model/Account/IAccountRepository.php',
+        'Domains\\Context\\BankAccount\\Domain\\Model\\Account\\TransactionInfo' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Domain/Model/Account/TransactionInfo.php',
+        'Domains\\Context\\BankAccount\\Domain\\Model\\Account\\TransactionOperation' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Domain/Model/Account/TransactionOperation.php',
         'Domains\\Context\\BankAccount\\Inbound\\WebApi\\Controllers\\AccountController' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Inbound/WebApi/Controllers/AccountController.php',
         'Domains\\Context\\BankAccount\\Inbound\\WebApi\\Controllers\\BalanceController' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Inbound/WebApi/Controllers/BalanceController.php',
         'Domains\\Context\\BankAccount\\Infrastructure\\Framework\\DataAccess\\Repositories\\AccountRepository' => __DIR__ . '/../..' . '/../Domains/Context/BankAccount/Infrastructure/Framework/DataAccess/Repositories/AccountRepository.php',
@@ -5598,10 +5609,10 @@ class ComposerStaticInitde752f88757dc978af014d27cc3d0892
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitde752f88757dc978af014d27cc3d0892::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitde752f88757dc978af014d27cc3d0892::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitde752f88757dc978af014d27cc3d0892::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitde752f88757dc978af014d27cc3d0892::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1a3e9ee492449c081ba69531b809a5a4::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1a3e9ee492449c081ba69531b809a5a4::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit1a3e9ee492449c081ba69531b809a5a4::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit1a3e9ee492449c081ba69531b809a5a4::$classMap;
 
         }, null, ClassLoader::class);
     }
