@@ -31,9 +31,9 @@ docker-compose exec app bash -c "cd framework && php artisan vendor:publish --pr
 
 ## Unit testing
 ```
-1) Log Handler: docker-compose exec app framework/vendor/bin/phpunit --testsuite BankAccount --coverage-html framework/storage/tests
+1) Bank Account: docker-compose exec app framework/vendor/bin/phpunit --testsuite BankAccount --coverage-html framework/storage/tests
 
-2) Match Reporting: docker-compose exec app framework/vendor/bin/phpunit --testsuite BankAccountOperations --coverage-html framework/storage/tests
+2) Bank Account Operations: docker-compose exec app framework/vendor/bin/phpunit --testsuite BankAccountOperations --coverage-html framework/storage/tests
 
 3) End-to-End: docker-compose exec php-fpm framework/vendor/bin/phpunit --testsuite BankSystem --coverage-html framework/storage/tests
 

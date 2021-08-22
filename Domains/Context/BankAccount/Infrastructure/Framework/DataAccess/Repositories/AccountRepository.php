@@ -39,7 +39,10 @@ final class AccountRepository implements IAccountRepository
 
     public function findById(int $id): array
     {
-        return $this->accountModel->find($id)->toArray();
+        $result = $this->accountModel->find($id);
+        if ($result === null) return [];
+
+        return $result->toArray();
     }
 
     public function findTransactions(int $accountId): array

@@ -10,6 +10,7 @@ use Domains\Context\BankAccount\Application\UseCases\Account\CreateAccountUseCas
 use Domains\Context\BankAccount\Application\UseCases\Balance\RecalculateBalanceInput;
 use Domains\Context\BankAccount\Application\UseCases\Balance\RecalculateBalanceUseCase;
 use Domains\Context\BankAccount\Domain\Model\Account\AccountEntity;
+use Domains\Context\BankAccount\Domain\Model\Account\TransactionInfo;
 use Domains\Context\BankAccount\Infrastructure\Framework\DataAccess\Repositories\AccountRepository;
 use Domains\Context\BankAccount\Infrastructure\Framework\Entities\AccountModel;
 use Domains\CrossCutting\Domain\Application\Event\Bus\DomainEventBus;
@@ -49,7 +50,7 @@ class AccountTest extends TestCase
         $accountModel = new AccountModel();
         $accountRepository = new AccountRepository($accountModel);
         $recalculateBalanceUseCase = new RecalculateBalanceUseCase($account, $accountRepository);
-        $recalculateBalanceUseCase->execute(new RecalculateBalanceInput(611, new MessageHandler()));
+        $recalculateBalanceUseCase->execute(new RecalculateBalanceInput(611, TransactionInfo::DEPOSIT, 20.00, new MessageHandler()));
         $this->assertTrue($account->isValid());
     }
 }
