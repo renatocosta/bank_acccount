@@ -23,14 +23,14 @@ class AccountController extends Controller
      *   summary="Create a new account",
      *   operationId="account",
      *
-     *   @OA\Parameter(
-     *      name="customer_id",
-     *      in="query",
-     *      required=true,
-     *      @OA\Schema(
-     *          type="integer"
-     *      )
-     *   ),
+     *     @OA\Parameter(
+     *         in="query",
+     *         name="customer_id",
+     *         @OA\Schema(
+     *             type="integer",
+     *             enum={1, 2}     
+     *         ),
+     *     ),
      *  
      *   @OA\Parameter(
      *      name="account_name",

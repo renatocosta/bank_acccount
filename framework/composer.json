@@ -36,7 +36,11 @@
             "Database\\Seeders\\": "database/seeders/",
             "Domains\\Context\\": "../Domains/Context",
             "Domains\\CrossCutting\\": "../Domains/CrossCutting"
-        }
+        },
+        "classmap": [
+            "database/seeds",
+            "database/factories"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
