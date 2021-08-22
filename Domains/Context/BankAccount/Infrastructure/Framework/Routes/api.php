@@ -6,6 +6,6 @@ Route::group(['prefix' => 'bankaccount'], function () {
         Route::get('/{account_id}/transactions', 'AccountController@allTransactions');
     });
     Route::group(['prefix' => 'balance'], function () {
-        Route::patch('/{account_id}', 'BalanceController@update');
+        Route::patch('/{account_id}/operation/{operation}/amount/{amount}', 'BalanceController@update');
     });
 });

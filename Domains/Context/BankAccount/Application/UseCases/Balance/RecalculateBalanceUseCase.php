@@ -5,6 +5,8 @@ namespace Domains\Context\BankAccount\Application\UseCases\Balance;
 use Domains\Context\BankAccount\Domain\Model\Account\Account;
 use Domains\Context\BankAccount\Domain\Model\Account\Balance;
 use Domains\Context\BankAccount\Domain\Model\Account\IAccountRepository;
+use Domains\Context\BankAccount\Domain\Model\Account\TransactionInfo;
+use Domains\Context\BankAccount\Domain\Model\Account\TransactionOperation;
 use Illuminate\Support\Facades\Log;
 use Exception;
 
@@ -24,19 +26,19 @@ final class RecalculateBalanceUseCase implements IRecalculateBalanceUseCase
     public function execute(RecalculateBalanceInput $input): void
     {
 
-        $transactions = $this->accountRepository->findTransactions($input->accountId);
+        $account = $this->accountRepository->findById($input->accountId);
 
-        if (count($transactions) === 0 || count($transactions[0]['transactions']) === 0) {
+        if (count($account) === 0) {
             $input->modelState->addError('No result');
             return;
         }
 
-        $totalAmount = 0;
+        $operation = new TransactionOperation($input->operation);
 
-        $account = $transactions[0];
-        $transactions = $transactions[0]['transactions'];
-        foreach ($transactions as $transaction) {
-            $totalAmount += $transaction['balance'];
+        if ($operation == TransactionInfo::DEPOSIT) {
+            $totalAmount = $account['current_balance'] + $input->newAmount;
+        } else {
+            $totalAmount = $account['current_balance'] - $input->newAmount;
         }
 
         $account = $this->account->readFrom($account['id'], $account['customer_id'], $account['account_name'], new Balance($totalAmount));

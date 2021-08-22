@@ -16,7 +16,7 @@ class BalanceController extends Controller
 {
     /**
      * @OA\Patch(
-     *   path="/bankaccount/balance/{account_id}",
+     *   path="/bankaccount/balance/{account_id}/operation/{operation}/amount/{amount}",
      *   tags={"Account"},
      *   summary="Recalculate an account balance",
      *     @OA\Parameter(
@@ -25,6 +25,23 @@ class BalanceController extends Controller
      *         required=true,
      *         @OA\Schema(
      *             type="integer",
+     *         ),
+     *     ),
+     * 
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="amount",
+     *         @OA\Schema(
+     *             type="double",
+     *         ),
+     *     ),
+     *  
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="operation",
+     *         @OA\Schema(
+     *             type="string",
+     *             enum={"Deposit", "Withdrawal"}     
      *         ),
      *     ),
      * 
@@ -60,7 +77,7 @@ class BalanceController extends Controller
     public function update(Request $request, IRecalculateBalanceUseCase $recalculateBalanceUseCase)
     {
 
-        $input = new RecalculateBalanceInput($request->account_id, new MessageHandler());
+        $input = new RecalculateBalanceInput($request->account_id, $request->operation, $request->amount, new MessageHandler());
         $recalculateBalanceUseCase->execute($input);
 
         if ($input->modelState->isValid()) {

@@ -104,7 +104,7 @@
                 }
             }
         },
-        "/bankaccount/balance/{account_id}": {
+        "/bankaccount/balance/{account_id}/operation/{operation}/amount/{amount}": {
             "patch": {
                 "tags": [
                     "Account"
@@ -117,6 +117,24 @@
                         "required": true,
                         "schema": {
                             "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "amount",
+                        "in": "path",
+                        "schema": {
+                            "type": "double"
+                        }
+                    },
+                    {
+                        "name": "operation",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "Deposit",
+                                "Withdrawal"
+                            ]
                         }
                     }
                 ],

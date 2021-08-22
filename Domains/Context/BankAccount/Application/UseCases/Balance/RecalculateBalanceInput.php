@@ -9,11 +9,17 @@ final class RecalculateBalanceInput
 
     public $accountId;
 
+    public $operation;
+
+    public $newAmount;
+
     public $modelState;
 
-    public function __construct(int $accountId, MessageHandler $modelState)
+    public function __construct(int $accountId, string $operation, float $newAmount, MessageHandler $modelState)
     {
         $this->accountId = $accountId;
+        $this->operation = $operation;
+        $this->newAmount = $newAmount;
         $this->modelState = $modelState;
     }
 }
