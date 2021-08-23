@@ -66,6 +66,7 @@ Go through all of the learning journey using Event Storming for understanding th
 ## Warning
 I am not taking security, performance, concurrency and among other concerns into consideration.
 I am also aware of low unit testing code coverage.
+In order to make sure the right balance I strongly recommend use Event Sourcing as an approach to capture every changing state.
 
 ## Knowledgements
 Domain-Driven Design, Event Storming
