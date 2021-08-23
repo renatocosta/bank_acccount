@@ -9,7 +9,7 @@ You'll need [Git](https://git-scm.com) and [Docker](https://www.docker.com/produ
 
 ## How To Use 
 
-From your command line, clone and run Quake Data Collector:
+From your command line, clone and run Bank account:
 
 ```bash
 # Clone this repository
