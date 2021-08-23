@@ -66,13 +66,14 @@ Go through all of the learning journey using Event Storming for understanding th
 ## Warning
 I am not taking security, performance, concurrency and among other concerns into consideration.  
 I am also aware of low unit testing code coverage.  
-Add authentication to protect the routes.  
 
 ## Improvements
 Repository method names should be replaced with ones that meet the good practices.  
 Swagger URL root should be replaced with a CONSTANT.  
 Replace HTTP response codes with the right ones.  
 In order to make sure the right balance I strongly recommend use Event Sourcing as an approach to capture every changing state.  
+Add authentication in order to protect the routes as well.  
+Allow creating new users.
 
 ## Knowledgements
 Domain-Driven Design, Event Storming
