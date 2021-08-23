@@ -69,9 +69,9 @@ I am also aware of low unit testing code coverage.
 Add authentication to protect the routes.  
 
 ## Improvements
-Repository method names should be replaced with ones that meet the good practices.
-Swagger URL root should be replaced with a CONSTANT.
-Replace HTTP response codes with the right ones.
+Repository method names should be replaced with ones that meet the good practices.  
+Swagger URL root should be replaced with a CONSTANT.  
+Replace HTTP response codes with the right ones.  
 In order to make sure the right balance I strongly recommend use Event Sourcing as an approach to capture every changing state.  
 
 ## Knowledgements
